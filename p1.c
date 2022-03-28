@@ -7,8 +7,9 @@
 
 #define READ  0
 #define WRITE 1
-char *const cmd[] = {"wc", NULL};
-char *const cmd1[] = {"ls", NULL};
+ 
+char *const cmd[] = {"sort", NULL};
+char *const cmd1[] = {"cat","/etc/hosts" , NULL};
 
 int main() {
 
