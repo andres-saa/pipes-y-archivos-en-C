@@ -7,6 +7,8 @@
 
 #define READ  0
 #define WRITE 1
+char *const cmd[] = {"wc", NULL};
+char *const cmd1[] = {"ls", NULL};
 
 int main() {
 
@@ -27,7 +29,8 @@ int main() {
 	// Redirect STDIN to read from the pipe.
 	dup2(fd[READ], STDIN_FILENO);
 	// Execute wc
-	execlp("wc", "wc", NULL);
+
+	execvp(cmd[0],cmd);
 
   case -1:
 	perror("fork() failed)");
@@ -40,7 +43,8 @@ int main() {
 	// Redirect STDOUT to write to the pipe.
 	dup2(fd[WRITE], STDOUT_FILENO);
 	// Execute ls -l
-	execlp("ls", "ls", NULL);
+
+	execvp(cmd1[0],cmd1);
   }
 }
 
